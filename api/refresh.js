@@ -1,6 +1,16 @@
 export default async function handler(req, res) {
 
-  res.setHeader("Access-Control-Allow-Origin", "https://botchatkit.lovestoblog.com");
+  const allowedOrigins = [
+    "https://www.grupasa.com",
+    "https://botchatkit.lovestoblog.com"
+  ];
+
+  const origin = req.headers.origin;
+
+  if (allowedOrigins.includes(origin)) {
+    res.setHeader("Access-Control-Allow-Origin", origin);
+  }
+
   res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
 
