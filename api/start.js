@@ -1,28 +1,24 @@
 export default async function handler(req, res) {
 
-  const allowedOrigins = [
-    "https://www.grupasa.com",
+  // 🔓 CORS (PERMITIR TU DOMINIO)
+  res.setHeader(
+    "Access-Control-Allow-Origin",
     "https://botchatkit.lovestoblog.com"
-  ];
-
-  const origin = req.headers.origin;
-
-  if (allowedOrigins.includes(origin)) {
-    res.setHeader("Access-Control-Allow-Origin", origin);
-  }
-
+  );
   res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
 
-  // 🔁 Preflight
+  // ✅ RESPONDER PREFLIGHT (ESTO ES LO QUE TE FALTABA)
   if (req.method === "OPTIONS") {
     return res.status(200).end();
   }
 
+  // ❌ SOLO POST
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Method not allowed" });
   }
 
+  // 🔵 TU LÓGICA ORIGINAL (SIN CAMBIOS)
   const response = await fetch("https://api.openai.com/v1/chatkit/sessions", {
     method: "POST",
     headers: {
