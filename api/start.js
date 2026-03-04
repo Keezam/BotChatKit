@@ -3,7 +3,7 @@ export default async function handler(req, res) {
   // 🔓 CORS (PERMITIR TU DOMINIO)
   res.setHeader(
     "Access-Control-Allow-Origin",
-    "https://www.grupasa.com"
+    "https://aigpsa.grupasa.com"
   );
   res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
