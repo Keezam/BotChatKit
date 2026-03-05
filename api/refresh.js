@@ -1,7 +1,7 @@
 export default async function handler(req, res) {
 
   const allowedOrigins = [
-    "https://www.grupasa.com",
+    "https://aigpsa.grupasa.com",
     "https://botchatkit.lovestoblog.com"
   ];
 
