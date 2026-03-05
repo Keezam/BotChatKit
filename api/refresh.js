@@ -1,7 +1,7 @@
 export default async function handler(req, res) {
 
   const allowedOrigins = [
-    "https://aigpsa.grupasa.com"
+    "https://aigpsa.grupasa.com:9093"
   ];
 
   const origin = req.headers.origin;
